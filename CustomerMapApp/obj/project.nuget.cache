@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NQSuywQSedtTxDnLs2JO7qH3L9xwn8phgN4AE2dly87YFBoK9aKKjK9qtw22M6I8fDc48MWQ4Qft+gsKhH+9hQ==",
+  "dgSpecHash": "8b9dj27lB6ekqiqaa4aUHyWqzYlyTqPyISgrfjzJFlll/18sNXyAixvriUKmsPEE/kFG6zb+Vpq7+wPQyVSDZQ==",
   "success": true,
-  "projectFilePath": "C:\\Developer\\CustomerMap\\CustomerMapApp\\CustomerMapApp.csproj",
+  "projectFilePath": "C:\\Developer\\CustomerMap\\Customer-Map\\CustomerMapApp\\CustomerMapApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

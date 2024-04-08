@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Developer\\CustomerMap\\CustomerMapApp\\CustomerMapApp.csproj": {}
+    "C:\\Developer\\CustomerMap\\Customer-Map\\CustomerMapApp\\CustomerMapApp.csproj": {}
   },
   "projects": {
-    "C:\\Developer\\CustomerMap\\CustomerMapApp\\CustomerMapApp.csproj": {
+    "C:\\Developer\\CustomerMap\\Customer-Map\\CustomerMapApp\\CustomerMapApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Developer\\CustomerMap\\CustomerMapApp\\CustomerMapApp.csproj",
+        "projectUniqueName": "C:\\Developer\\CustomerMap\\Customer-Map\\CustomerMapApp\\CustomerMapApp.csproj",
         "projectName": "CustomerMapApp",
-        "projectPath": "C:\\Developer\\CustomerMap\\CustomerMapApp\\CustomerMapApp.csproj",
+        "projectPath": "C:\\Developer\\CustomerMap\\Customer-Map\\CustomerMapApp\\CustomerMapApp.csproj",
         "packagesPath": "C:\\Users\\jorda\\.nuget\\packages\\",
-        "outputPath": "C:\\Developer\\CustomerMap\\CustomerMapApp\\obj\\",
+        "outputPath": "C:\\Developer\\CustomerMap\\Customer-Map\\CustomerMapApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
