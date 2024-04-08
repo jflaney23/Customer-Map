@@ -14,18 +14,52 @@
 <body>
     <h1>My Local Area Map</h1>
     <div id="map"></div>
+
+     <!-- Adding marker form -->
+    <h2>Enter Coordinates</h2>
+    <!-- Adding marker form -->
+    <form id="markerForm"> 
+        Coordinates: <input type="text" id="coords" placeholder="40.383273, -75.247097" required><br>
+        <input type="submit" value="Add Marker">
+    </form>
+
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
+
         // Init default map
         var map = L.map('map').setView([40.312663165556806, -75.30764259509336], 10);
-        var marker = L.marker([40.167778, -74.827935]).addTo(map);
-        marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-        var marker = L.marker([40.319328, -76.079506]).addTo(map);
-        marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+        var marker1 = L.marker([40.167778, -74.827935]).addTo(map);
+        marker1.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+        var marker2 = L.marker([40.319328, -76.079506]).addTo(map);
+        marker2.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
+
+        // Function to add market
+        function addMarker(lat, lng) {
+            var newMarker = L.marker([lat, lng]);
+            newMarker.addTo(map).bindPopup("Coordinates: " + lat + ", " + lng).openPopup();
+        }
+        
+        // Listener for when coords get entered in form
+        document.getElementById('markerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var coords = document.getElementById('coords').value.split(',');
+            if(coords.length === 2) {
+                var lat = parseFloat(coords[0].trim());
+                var lng = parseFloat(coords[1].trim());
+                addMarker(lat, lng);
+            } else {
+                alert('Invalid coordinates. Please use the format "latitude, longitude".');
+            }
+        });
     </script>
+
+    
+   
+
 </body>
 </html>
