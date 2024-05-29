@@ -1,0 +1,121 @@
+@model IEnumerable<CustomerMapApp.Models.Customer>
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-1DRHY9T7NsE5J9DSBzT8wLJ4K0dr4b7Fdrk5TEFhpZB5JLVkP3naCEKb0S5L5si" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background-color: #f5f5f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #0071e3;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table thead th {
+            background-color: #0071e3;
+            color: #fff;
+            padding: 12px;
+            text-align: left;
+            font-weight: 500;
+            border-bottom: 2px solid #005bb5;
+        }
+        .table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .table tbody td {
+            padding: 12px;
+            color: #666;
+        }
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0071e3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #005bb5;
+        }
+        .btn-primary:active {
+            background-color: #003e8a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customers</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone Number</th>
+                    <th>On Facebook</th>
+                    <th>Email</th>
+                    <th>Street Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip Code</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.OnFacebook</td>
+                        <td>@item.Email</td>
+                        <td>@item.StreetAddress</td>
+                        <td>@item.City</td>
+                        <td>@item.State</td>
+                        <td>@item.ZipCode</td>
+                        <td>@item.Country</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/Customers/Create" class="btn btn-primary">Create New</a>
+        </div>
+    </div>
+</body>
+</html>
