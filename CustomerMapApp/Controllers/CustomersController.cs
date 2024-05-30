@@ -28,7 +28,7 @@ namespace CustomerMapApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PhoneNumber,OnFacebook,Email,StreetAddress,City,State,ZipCode,Country")] Customer customer)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PhoneNumber,OnFacebook,Email,StreetAddress,City,State,ZipCode,Country,Longitude,Latitude")] Customer customer)
         {
             if (ModelState.IsValid)
             {

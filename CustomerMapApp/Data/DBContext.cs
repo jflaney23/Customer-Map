@@ -12,6 +12,7 @@ namespace CustomerMapApp.Data
 
         public DbSet<Customer> Customers { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

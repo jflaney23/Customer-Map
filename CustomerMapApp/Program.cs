@@ -15,6 +15,18 @@ builder.Services.AddDbContext<DBContext>(options =>
 
 var app = builder.Build();
 
+// Apply any pending migrations and create the database
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<DBContext>();
+    context.Database.Migrate();
+    
+    // Log the number of customers in the database
+    var customerCount = context.Customers.Count();
+    Console.WriteLine($"Database initialized. Number of customers: {customerCount}");
+}
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

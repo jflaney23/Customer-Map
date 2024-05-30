@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<CustomerMapApp.Models.Customer>
+
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,45 +13,76 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         #map { 
-            height: 1000px; }
-        
+            height: 1000px; 
+        }
     </style>
 </head>
 <body>
     <h1>My Local Area Map</h1>
     <div id="map"></div>
 
-     <!-- Adding marker form -->
-    <h2>Enter Coordinates</h2>
     <!-- Adding marker form -->
+    <h2>Enter Coordinates</h2>
     <form id="markerForm"> 
         Coordinates: <input type="text" id="coords" placeholder="40.383273, -75.247097" required><br>
         <input type="submit" value="Add Marker">
     </form>
 
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-
         // Init default map
         var map = L.map('map').setView([40.312663165556806, -75.30764259509336], 10);
         var marker1 = L.marker([40.167778, -74.827935]).addTo(map);
         marker1.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
         var marker2 = L.marker([40.319328, -76.079506]).addTo(map);
         marker2.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-         var marker3 = L.marker([40.11855186574746, -75.21477729100197]).addTo(map);
-        marker3.bindPopup("<b>James St. George").openPopup();
+        var marker3 = L.marker([40.11855186574746, -75.21477729100197]).addTo(map);
+        marker3.bindPopup("<b>James St. George</b>").openPopup();
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Function to add market
-        function addMarker(lat, lng) {
+        // Function to add marker
+        function addMarker(lat, lng, popupText) {
             var newMarker = L.marker([lat, lng]);
-            newMarker.addTo(map).bindPopup("Coordinates: " + lat + ", " + lng).openPopup();
+            newMarker.addTo(map).bindPopup(popupText).openPopup();
         }
-        
+
+        // Log the model data to the console
+        console.log('Model:', @Html.Raw(Json.Serialize(Model)));
+
+        @* Ensure the model is not null *@
+        @if (Model != null)
+        {
+            // Goes through DB and adds all the customer coords
+            @foreach (var item in Model)
+            {
+                // Ensure item, Latitude, and Longitude are not null and Latitude, Longitude are valid numbers
+                if (item != null && !string.IsNullOrEmpty(item.Latitude) && !string.IsNullOrEmpty(item.Longitude))
+                {
+                    var lat = item.Latitude;
+                    var lng = item.Longitude;
+                    <text>
+                        console.log('Adding marker for: @item.FirstName @item.LastName, Lat: @lat, Lng: @lng');
+                        addMarker(parseFloat('@lng'), parseFloat('@lat'), "@item.FirstName @item.LastName: @item.StreetAddress, @item.City, @item.State @item.ZipCode, @item.Country");
+                    </text>
+                }
+                else
+                {
+                    <text>
+                        console.log('Skipping customer: @item?.FirstName @item?.LastName due to missing coordinates.');
+                    </text>
+                }
+            }
+        }
+        else
+        {
+            <text>
+                console.log('Model is null.');
+            </text>
+        }
+
         // Listener for when coords get entered in form
         document.getElementById('markerForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -59,9 +96,6 @@
             }
         });
     </script>
-
-    
-   
-
 </body>
 </html>
+
