@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<CustomerMapApp.Models.Customer>
 
+
 @{
-    ViewData["Title"] = "Customers";
+    ViewData["Title"] = "Customer Map App";
 }
 
 <!DOCTYPE html>
@@ -9,7 +10,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Map Application</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         #map { 
@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <h1>My Local Area Map</h1>
+    <h1>Customer Map</h1>
     <div id="map"></div>
 
     <!-- Adding marker form -->
