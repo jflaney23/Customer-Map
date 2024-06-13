@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CustomerMapApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5461cec618eae7af8633f9dc015099aba451c03f")]
 [assembly: System.Reflection.AssemblyProductAttribute("CustomerMapApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CustomerMapApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
