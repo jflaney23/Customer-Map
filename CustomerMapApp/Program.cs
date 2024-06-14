@@ -1,12 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using CustomerMapApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add Razor Pages services
+builder.Services.AddRazorPages();
 
 // Configure DbContext with SQLite and set the migrations assembly
 builder.Services.AddDbContext<DBContext>(options =>
@@ -27,7 +29,6 @@ using (var scope = app.Services.CreateScope())
     Console.WriteLine($"Database initialized. Number of customers: {customerCount}");
 }
 
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -42,8 +43,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Map controller routes
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// Map Razor Pages
+app.MapRazorPages();
 
 app.Run();
